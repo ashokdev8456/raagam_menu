@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RAGAM - Indian Culinary Excellence</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-container">
+
+    <div class="logo">
+      <!-- <div class="logo-icon">🍛</div> -->
+      <div>
+        <!-- <span class="logo-text">RAGAM</span> -->
+        <!-- <p class="logo-subtitle">Every meal celebrates flavors</p> -->
+      </div>
+    </div>
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="assets/main_logo.jpeg" alt="Ragam Logo" class="main-logo">
+    </div>
+
+
+    <div class="nav-links desktop-menu">
+      <a href="#home">Home</a>
+      <a href="#services">Services</a>
+      <a href="#features">Features</a>
+      <a href="menu.html">Menu</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </div>
+
+    <a href="#contact" class="btn-book desktop-btn">Order Now</a>
+
+    <button id="hamburger" class="hamburger">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+
+  <div id="mobile-menu" class="mobile-menu">
+    <button id="close-menu" class="close-btn">✕</button>
+    <a href="#home">Home</a>
+    <a href="#services">Services</a>
+    <a href="#features">Features</a>
+    <a href="menu.html">Menu</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="slides-container">
+    <div class="hero-slide active" style="background-image: url('https://images.pexels.com/photos/15120599/pexels-photo-15120599.jpeg');"></div>
+    <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg');"></div>
+    <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/4005229/pexels-photo-4005229.jpeg');"></div>
+    <div class="hero-slide" style="background-image: url('https://images.pexels.com/photos/33419113/pexels-photo-33419113.jpeg');"></div>
+  </div>
+
+  <div class="hero-overlay">
+    <div class="hero-content">
+      <h1>Indian<br><span>Culinary Excellence</span></h1>
+      <p>Experience the rich tapestry of traditional Indian flavors, crafted with passion and served with elegance. Your celebration, our masterpiece.</p>
+
+      <div class="hero-buttons">
+        <a href="#services" class="btn-primary"><i class="fa-solid fa-utensils"></i> Explore Menu</a>
+        <a href="tel:+1 737 242 6111" class="btn-outline"><i class="fa-solid fa-phone"></i> +1 737 242 6111</a>
+      </div>
+
+      <!-- <div class="stats">
+        <div><div id="c1" class="counter">0</div><div class="stat-label">HAPPY CLIENTS</div></div>
+        <div><div id="c2" class="counter">0</div><div class="stat-label">EVENTS / MONTH</div></div>
+        <div><div id="c3" class="counter">0</div><div class="stat-label">MENU ITEMS</div></div>
+      </div> -->
+    </div>
+  </div>
+
+  <button class="carousel-btn prev" onclick="prevSlide()">❮</button>
+  <button class="carousel-btn next" onclick="nextSlide()">❯</button>
+  <div id="indicators" class="indicators"></div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="container">
+    <h2>What We Offer</h2>
+    <p class="section-lead">Our Premium Services — Comprehensive catering solutions tailored to your event's unique requirements, delivered with professionalism and authenticity.</p>
+
+    <div class="services-grid">
+      <!-- Card 1 -->
+      <div class="service-card">
+        <div class="card-img" style="background-image: url('https://images.pexels.com/photos/6995259/pexels-photo-6995259.jpeg');"></div>
+        <div class="card-content">
+          <h3>Ragam Meal Box</h3>
+          <div class="guest-range">10 - 50 Guests</div>
+          <p>Curated meal boxes featuring traditional Indian delicacies, perfect for corporate lunches, small gatherings, and private parties. Freshly prepared and elegantly packed.</p>
+          <a href="#services" class="card-btn">View Packages <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="service-card">
+        <div class="card-img" style="background-image: url('https://images.pexels.com/photos/10297223/pexels-photo-10297223.jpeg');"></div>
+        <div class="card-content">
+          <h3>Ragam Feast Delivery</h3>
+          <div class="guest-range">20 - 150 Guests</div>
+          <p>Full-service feast delivery for house parties, farmhouse events, and celebrations. We bring the authentic taste of South India to your doorstep, complete with setup and service.</p>
+          <a href="#services" class="card-btn">Explore Feasts <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="service-card featured">
+        <div class="card-img" style="background-image: url('https://images.pexels.com/photos/7245469/pexels-photo-7245469.jpeg');"></div>
+        <div class="card-content">
+          <h3>Ragam Grand Catering</h3>
+          <div class="guest-range">100 - 1000+ Guests</div>
+          <p>End-to-end catering for weddings, corporate galas, and large-scale events. Includes live cooking stations, custom menus, and a dedicated event manager for a seamless experience.</p>
+          <!-- <a href="#" class="card-btn featured-btn">Plan Your Event <i class="fa-solid fa-arrow-right"></i></a> -->
+          <a href="#services" class="card-btn">Plan Your Event<i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="section features-section">
+  <div class="container">
+    <h2>Why Choose Us</h2>
+    <p class="section-lead">Our Special Features — What makes RAGAM the preferred choice for authentic Indian catering in Hyderabad.</p>
+
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🍽️</div>
+        <h3>Customizable Menus</h3>
+        <p>Build your perfect menu from 50+ traditional and contemporary dishes. Dietary preferences and regional specialties fully accommodated.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">₹</div>
+        <h3>Dynamic Pricing</h3>
+        <p>Price per plate decreases as guest count increases. Save up to 25% on larger events while enjoying premium quality & service.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">👩‍💼</div>
+        <h3>Personal Event Manager</h3>
+        <p>A dedicated point of contact for all your requirements — flawless coordination from consultation to cleanup.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌿</div>
+        <h3>Fresh Ingredients</h3>
+        <p>100% fresh, locally sourced ingredients prepared on the day of your event. No compromises on quality or authentic taste.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section gallery-section">
+  <div class="container">
+    <h2>Gallery</h2>
+    <p class="section-lead">Moments we created – food, joy & celebration</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/5410418/pexels-photo-5410418.jpeg" alt="Traditional Indian feast">
+        <div class="gallery-overlay">
+          <span class="overlay-text">View Larger</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/2454533/pexels-photo-2454533.jpeg" alt="South Indian banquet">
+        <div class="gallery-overlay">
+          <span class="overlay-text">View Larger</span>
+        </div>
+      </div>
+
+      <div class="gallery-item tall">
+        <img src="https://images.pexels.com/photos/3521365/pexels-photo-3521365.jpeg" alt="Live cooking station">
+        <div class="gallery-overlay">
+          <span class="overlay-text">View Larger</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/1123252/pexels-photo-1123252.jpeg" alt="Dessert presentation">
+        <div class="gallery-overlay">
+          <span class="overlay-text">View Larger</span>
+        </div>
+      </div>
+
+      <div class="gallery-item wide">
+        <img src="https://images.pexels.com/photos/2814828/pexels-photo-2814828.jpeg" alt="Grand wedding spread">
+        <div class="gallery-overlay">
+          <span class="overlay-text">View Larger</span>
+        </div>
+      </div>
+
+      <div class="gallery-item">
+        <img src="https://images.pexels.com/photos/32441077/pexels-photo-32441077.jpeg" alt="Corporate catering">
+        <div class="gallery-overlay">
+          <span class="overlay-text">View Larger</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="section">
+  <div class="container">
+    <h2>What Our Guests Say</h2>
+    <p class="section-lead">Real stories from clients who celebrated with RAGAM</p>
+
+    <div class="reviews-carousel">
+      <div class="review-slide">
+        <div class="review-card">
+          <div class="review-avatar">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150" alt="Ananya">
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>“The biryani was outstanding and the service was royal. Best wedding catering we ever had!”</p>
+          <div class="review-author">— Ananya & Rohan, Wedding 2025</div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="review-card">
+          <div class="review-avatar">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150" alt="Vikram">
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>“Corporate event for 400 people — food was hot, tasty and beautifully presented. Highly recommended.”</p>
+          <div class="review-author">— Vikram Reddy, Tech Lead</div>
+        </div>
+      </div>
+
+      <div class="review-slide">
+        <div class="review-card">
+          <div class="review-avatar">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150" alt="Priya">
+          </div>
+          <div class="stars">★★★★★</div>
+          <p>“Anniversary dinner at home — every dish felt special. The team was professional and warm.”</p>
+          <div class="review-author">— Priya Sharma</div>
+        </div>
+      </div>
+
+      <!-- Add more slides if you have more reviews -->
+    </div>
+
+    <!-- Dots navigation -->
+    <div class="carousel-dots"></div>
+  </div>
+</section>
+<!-- CONTACT -->
+<section id="contact" class="section">
+  <div class="container">
+    <h2>Get in Touch</h2>
+    <p class="section-lead">Let's plan your next unforgettable celebration</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-item">
+          <i class="fa-solid fa-phone-volume"></i>
+          <div>
+            <strong>Phone</strong><br>
+            <a href="tel:+17372426111">+1 737 242 6111</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-envelope"></i>
+          <div>
+            <strong>Email</strong><br>
+            <a href="mailto:ragamflavors@gmail.com">ragamflavors@gmail.com</a>
+          </div>
+        </div>
+        <div class="info-item">
+          <i class="fa-solid fa-location-dot"></i>
+          <div>
+            <strong>Location</strong><br>
+            Austin, Texas
+          </div>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="social-icons">
+          <a href="https://facebook.com/ragamflavors" target="_blank" rel="noopener" aria-label="Facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://instagram.com/ragamflavors" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://twitter.com/ragamflavors" target="_blank" rel="noopener" aria-label="Twitter">
+            <i class="fab fa-x-twitter"></i>
+          </a>
+        </div>
+      </div>
+
+      <form class="contact-form">
+        <input type="text" placeholder="Your Name" required>
+        <input type="tel" placeholder="Phone Number" required>
+        <input type="email" placeholder="Email Address" required>
+        <input type="text" placeholder="Event Date (if any)">
+        <textarea placeholder="Tell us about your event..." rows="5" required></textarea>
+        <button type="submit" class="btn-primary">Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer style="background: black;">
+  <div class="footer-container">
+    <div class="footer-column">
+      <!-- <h3>Ragam Flavors</h3> -->
+      <div class="footer-logo">
+      <img src="assets/main_logo.jpeg" alt="Ragam Logo" class="main-logo">
+    </div>
+      <p>
+        Authentic Indian catering services bringing traditional flavors to your celebrations with professionalism and passion.
+      </p>
+
+      <div class="social-icons">
+        <a href="https://facebook.com/ragamflavors" target="_blank" aria-label="Facebook" class="social-link">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://instagram.com/ragamflavors" target="_blank" aria-label="Instagram" class="social-link">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com/ragamflavors" target="_blank" aria-label="Twitter" class="social-link">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://linkedin.com/company/ragamflavors" target="_blank" aria-label="LinkedIn" class="social-link">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <ul class="footer-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-column">
+      <h3>Contact Info</h3>
+      <ul class="footer-contact">
+        <li><i class="fa-solid fa-location-dot"></i> Austin, Texas</li>
+        <li><i class="fa-solid fa-phone-volume"></i> +1 737 242 6111</li>
+        <li><i class="fa-solid fa-envelope"></i> ragamflavors@gmail.com</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 Ragam Flavors. All Rights Reserved. | Powered by <span class="heart">♥</span> Risings Tech</p>
+  </div>
+
+  <!-- Back to Top Button -->
+  <button id="back-to-top" class="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

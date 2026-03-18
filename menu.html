@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu – RAGAM Indian Culinary Excellence</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --navbar-height: 85px;
+      --primary-gold: #F7F18D;
+      --primary-gold-dark: #E8D76B;
+      --accent-saffron: #E67E22;
+      --dark: #0F172A;
+      --cream: #FEFCF7;
+      --text: #1F2937;
+      --text-light: #64748B;
+      --menu-primary: #b22222;
+      --menu-light: #fffaf0;
+      --menu-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+      padding-top: var(--navbar-height);
+      min-height: 100vh;
+    }
+
+    /* ─── NAVBAR ───────────────────────────────────────────── */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: black;
+      color: white;
+      z-index: 1000;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .main-logo {
+      height: 80px;
+      width: auto;
+      max-height: 90px;
+    }
+
+    .nav-links.desktop-menu {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: #e2e8f0;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1.05rem;
+      transition: color 0.3s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary-gold);
+    }
+
+    .btn-book.desktop-btn {
+      background: linear-gradient(90deg, var(--primary-gold), var(--primary-gold-dark));
+      color: var(--dark);
+      font-weight: 600;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .btn-book.desktop-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 25px rgba(247, 241, 141, 0.35);
+    }
+
+    .hamburger {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 2.2rem;
+      cursor: pointer;
+      display: none;
+      z-index: 1001;
+    }
+
+    .mobile-menu {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.98);
+      backdrop-filter: blur(8px);
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 3rem;
+      font-size: 1.8rem;
+      transform: translateY(-100%);
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.18, 1);
+      z-index: 999;
+    }
+
+    .mobile-menu.open {
+      transform: translateY(0);
+    }
+
+    .mobile-menu a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .mobile-menu a:hover {
+      color: var(--primary-gold);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      background: none;
+      border: none;
+      color: var(--primary-gold);
+      font-size: 4rem;
+      cursor: pointer;
+    }
+
+    /* ─── MENU PAGE ─────────────────────────────────────────────────────── */
+    .menu-page {
+      padding: 110px 20px 100px;
+      background: var(--menu-light);
+      min-height: 100vh;
+    }
+
+    .menu-hero {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    .menu-hero h1 {
+      font-family: 'Playfair Display', serif;
+      color: var(--menu-primary);
+      font-size: 3.5rem;
+      margin-bottom: 12px;
+    }
+
+    .filters {
+      text-align: center;
+      margin: 30px 0 50px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+
+    .filter-btn {
+      padding: 12px 26px;
+      border: 2px solid var(--menu-primary);
+      background: white;
+      color: var(--menu-primary);
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.28s ease;
+    }
+
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--menu-primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 340px));
+      gap: 32px;
+      justify-content: center;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* ── CARD FIX: uniform height, no up/down shift ── */
+    .menu-card {
+      background: white;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: var(--menu-shadow);
+      transition: transform 0.32s cubic-bezier(0.34, 1.56, 0.64, 1),
+        box-shadow 0.32s ease,
+        opacity 0.35s ease;
+      opacity: 0;
+      transform: translateY(16px);
+      display: flex;
+      flex-direction: column;
+      /* Fix: consistent card height so all cards align */
+      align-self: start;
+    }
+
+    .menu-card.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .menu-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.14);
+    }
+
+    /* ── IMAGE CONTAINER: fixed aspect ratio = NO up/down jumping ── */
+    .card-img-wrap {
+      width: 100%;
+      /* 4:3 ratio — change to 16/9 or 1/1 if you prefer */
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #f0ebe3;
+      /* placeholder bg while loading */
+      flex-shrink: 0;
+    }
+
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.4s ease;
+      /* Faster perceived load */
+      image-rendering: auto;
+    }
+
+    .menu-card:hover .card-img-wrap img {
+      transform: scale(1.06);
+    }
+
+    /* Skeleton shimmer while image loads */
+    .card-img-wrap img:not([src]),
+    .card-img-wrap img[src=""] {
+      visibility: hidden;
+    }
+
+    .card-img-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #f0ebe3 25%, #faf5ee 50%, #f0ebe3 75%);
+      background-size: 200% 100%;
+      animation: shimmer 1.4s infinite;
+      border-radius: 0;
+      z-index: 0;
+    }
+
+    .card-img-wrap {
+      position: relative;
+    }
+
+    .card-img-wrap img {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes shimmer {
+      0% {
+        background-position: 200% 0;
+      }
+
+      100% {
+        background-position: -200% 0;
+      }
+    }
+
+    /* Hide shimmer once image has loaded */
+    .card-img-wrap.loaded::before {
+      display: none;
+    }
+
+    .menu-info {
+      padding: 1.2rem 1rem 1.4rem;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .menu-info h3 {
+      margin: 0;
+      font-size: 1.25rem;
+      color: var(--dark);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    /* ─── FOOTER ────────────────────────────────────────────────────────── */
+    footer {
+      background: #0F172A;
+      color: #cbd5e1;
+      padding: 5rem 0 3rem;
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 3rem 2rem;
+    }
+
+    .footer-column {
+      text-align: center;
+    }
+
+    .footer-column h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--accent-saffron);
+      margin-bottom: 1.5rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    .footer-column h3:after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary-gold), var(--accent-saffron));
+      border-radius: 2px;
+    }
+
+    .footer-column p {
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #94a3b8;
+      max-width: 380px;
+      margin: 0 auto;
+    }
+
+    .footer-links,
+    .footer-contact {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-links li,
+    .footer-contact li {
+      margin-bottom: 1rem;
+    }
+
+    .footer-links a,
+    .footer-contact a {
+      color: #cbd5e1;
+      text-decoration: none;
+      font-size: 1.05rem;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover,
+    .footer-contact a:hover {
+      color: var(--primary-gold);
+    }
+
+    .footer-contact i {
+      color: var(--primary-gold);
+      font-size: 1.4rem;
+      margin-right: 0.8rem;
+      min-width: 25px;
+      text-align: center;
+    }
+
+    .footer-logo {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-logo img {
+      height: 90px;
+      width: auto;
+      max-height: 100px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 1.4rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      width: 50px;
+      height: 50px;
+      background: rgba(247, 241, 141, 0.12);
+      color: var(--primary-gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      transition: all 0.35s ease;
+      border: 1px solid rgba(247, 241, 141, 0.25);
+      text-decoration: none;
+    }
+
+    .social-link:hover {
+      background: var(--primary-gold);
+      color: var(--dark);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(247, 241, 141, 0.35);
+      border-color: var(--primary-gold);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      margin-top: 4rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .footer-bottom p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+
+    .heart {
+      color: var(--primary-gold);
+      font-size: 1.2rem;
+    }
+
+    /* ─── Responsive ─── */
+    @media (max-width: 1250px) {
+      .hamburger {
+        display: block;
+      }
+
+      .desktop-menu,
+      .desktop-btn {
+        display: none !important;
+      }
+
+      .nav-container {
+        padding: 1rem 1.5rem;
+      }
+
+      .main-logo,
+      .footer-logo img {
+        height: 70px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-page {
+        padding: 90px 16px 80px;
+      }
+
+      .menu-hero h1 {
+        font-size: 2.4rem;
+      }
+
+      .menu-grid {
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 20px;
+      }
+    }
+
+    @media (max-width: 480px) {
+
+      .main-logo,
+      .footer-logo img {
+        height: 60px;
+      }
+
+      .close-btn {
+        font-size: 3.5rem;
+      }
+
+      .mobile-menu {
+        font-size: 1.6rem;
+        gap: 2.5rem;
+      }
+
+      .menu-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px;
+      }
+    }
+
+    @media (max-width: 360px) {
+      .menu-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="logo">
+        <img src="assets/main_logo.jpeg" alt="Ragam Logo" class="main-logo">
+      </div>
+
+      <div class="nav-links desktop-menu">
+        <a href="index.html#home">Home</a>
+        <a href="index.html#services">Services</a>
+        <a href="index.html#features">Features</a>
+        <a href="menu.html">Menu</a>
+        <a href="index.html#reviews">Reviews</a>
+        <a href="index.html#contact">Contact</a>
+      </div>
+
+      <a href="index.html#contact" class="btn-book desktop-btn">Order Now</a>
+
+      <button id="hamburger" class="hamburger">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <div id="mobile-menu" class="mobile-menu">
+      <button id="close-menu" class="close-btn">✕</button>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#features">Features</a>
+      <a href="menu.html">Menu</a>
+      <a href="index.html#reviews">Reviews</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </nav>
+
+  <!-- MENU CONTENT -->
+  <section class="menu-page">
+    <div class="container">
+      <div class="menu-hero">
+        <h1>Our Menu</h1>
+        <p>Healthy, Tasty &amp; 100%  Delight at RAGAM</p>
+        <p style="margin-top:12px; color:#444; font-size:1.05rem;">
+          Call / WhatsApp for Orders: <strong>+1 737 242 6111</strong>
+        </p>
+      </div>
+
+      <div class="filters" id="filters"></div>
+      <div class="menu-grid" id="menuGrid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <div class="footer-logo">
+          <img src="assets/main_logo.jpeg" alt="Ragam Logo" class="main-logo" loading="lazy" decoding="async">
+        </div>
+        <p>
+          Authentic Indian catering services bringing traditional flavors to your celebrations
+          with professionalism and passion.
+        </p>
+        <div class="social-icons">
+          <a href="https://facebook.com/ragamflavors" target="_blank" class="social-link"><i
+              class="fab fa-facebook-f"></i></a>
+          <a href="https://instagram.com/ragamflavors" target="_blank" class="social-link"><i
+              class="fab fa-instagram"></i></a>
+          <a href="https://twitter.com/ragamflavors" target="_blank" class="social-link"><i
+              class="fab fa-x-twitter"></i></a>
+          <a href="https://linkedin.com/company/ragamflavors" target="_blank" class="social-link"><i
+              class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul class="footer-links">
+          <li><a href="index.html#home">Home</a></li>
+          <li><a href="index.html#services">Services</a></li>
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="menu.html">Menu</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Contact Info</h3>
+        <ul class="footer-contact">
+          <li><i class="fa-solid fa-location-dot"></i> Austin, Texas</li>
+          <li><i class="fa-solid fa-phone-volume"></i> +1 737 242 6111</li>
+          <li><i class="fa-solid fa-envelope"></i> ragamflavors@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Ragam Flavors. All Rights Reserved. | Crafted with <span class="heart">♥</span> Risings Technologies</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="menudata.js"></script>
+  <script>
+    // 1. Generate Filters
+    const filtersDiv = document.getElementById('filters');
+    const uniqueCategories = ['all', ...new Set(menuItems.map(item => item.category))];
+
+    uniqueCategories.forEach(cat => {
+      const btn = document.createElement('button');
+      btn.className = 'filter-btn' + (cat === 'all' ? ' active' : '');
+      btn.dataset.filter = cat;
+      btn.textContent = cat === 'all' ? 'All' : cat.charAt(0).toUpperCase() + cat.slice(1);
+      filtersDiv.appendChild(btn);
+    });
+
+    // 2. Render Menu Cards — with lazy loading & shimmer wrapper
+    const grid = document.getElementById('menuGrid');
+    const cardsByCategory = {};
+
+    menuItems.forEach((item, index) => {
+      const card = document.createElement('div');
+      card.className = 'menu-card';
+      card.dataset.category = item.category;
+
+      // Staggered reveal: first 12 cards animate in quickly
+      const delay = Math.min(index, 11) * 40;
+
+      card.innerHTML = `
+        <div class="card-img-wrap">
+          <img
+            src="${item.img}"
+            alt="${item.name}"
+            loading="lazy"
+            decoding="async"
+            onerror="this.src='https://placehold.co/340x255/f0ebe3/b22222?text=${encodeURIComponent(item.name)}'"
+          >
+        </div>
+        <div class="menu-info">
+          <h3>${item.name}</h3>
+        </div>
+      `;
+
+      // Remove shimmer once image fully loads
+      const imgEl = card.querySelector('img');
+      const wrap = card.querySelector('.card-img-wrap');
+      if (imgEl.complete) {
+        wrap.classList.add('loaded');
+      } else {
+        imgEl.addEventListener('load', () => wrap.classList.add('loaded'), { once: true });
+        imgEl.addEventListener('error', () => wrap.classList.add('loaded'), { once: true });
+      }
+
+      grid.appendChild(card);
+
+      // Staggered entrance animation
+      setTimeout(() => card.classList.add('show'), delay + 80);
+
+      if (!cardsByCategory[item.category]) cardsByCategory[item.category] = [];
+      cardsByCategory[item.category].push(card);
+    });
+
+    // 3. Filter Logic
+    let timeout;
+    filtersDiv.addEventListener('click', e => {
+      if (!e.target.classList.contains('filter-btn')) return;
+
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        e.target.classList.add('active');
+
+        const filter = e.target.dataset.filter;
+        const showAll = filter === 'all';
+
+        Object.keys(cardsByCategory).forEach(cat => {
+          const show = showAll || cat === filter;
+          cardsByCategory[cat].forEach((card, i) => {
+            if (show) {
+              card.style.display = '';
+              // Small stagger per visible card
+              const delay = i * 30;
+              setTimeout(() => card.classList.add('show'), delay + 20);
+            } else {
+              card.classList.remove('show');
+              setTimeout(() => {
+                if (!card.classList.contains('show')) card.style.display = 'none';
+              }, 380);
+            }
+          });
+        });
+      }, 60);
+    });
+  </script>
+
+  <!-- Mobile Menu Toggle -->
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenu = document.getElementById('close-menu');
+
+    hamburger?.addEventListener('click', () => mobileMenu.classList.add('open'));
+    closeMenu?.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    mobileMenu?.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+  </script>
+</body>
+
+</html>
